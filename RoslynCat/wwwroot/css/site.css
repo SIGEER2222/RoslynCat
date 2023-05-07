@@ -1,0 +1,576 @@
+.monaco {
+    height: 100%;
+    width: 100%;
+    max-width:1200px;
+}
+button {
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    font-size: 16px;
+}
+.code-cell {
+    max-width: 300px; /* 设置单元格最大宽度 */
+    overflow: hidden;
+    text-overflow: ellipsis; /* 当文本溢出时，用省略号表示 */
+    white-space: nowrap; /* 防止换行 */
+}
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 3.5rem;
+        top: 0.5rem;
+    }
+
+.blazor-error-boundary {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, #b32121;
+    padding: 1rem 1rem 1rem 3.7rem;
+    color: white;
+}
+
+    .blazor-error-boundary::after {
+        content: "An error has occurred."
+    }
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+
+
+/*
+    聊天框的样式
+*/
+.chat-div {
+    border-radius: 5px;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+    /*max-width: 800px;*/
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    max-height: 90%; /* 指定最大高度 */
+    overflow-y: auto; /* 只在内容超过容器高度时显示垂直滚动条 */
+}
+
+.chat-message {
+    border-radius: 5px;
+    clear: both;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.system-message {
+    border-radius: 5px;
+    float: left;
+    background-color: #dcdcdc;
+    color: #333;
+    max-width: 90%;
+}
+
+.user-message {
+    float: right;
+    background-color: #007bff;
+    color: #fff;
+    max-width: 80%;
+}
+
+.message-bubble {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+    .chat-input input {
+        flex-grow: 1;
+        margin-right: 10px;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: black;
+    }
+
+.send-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/*弹窗的样式*/
+.my-component-modal {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-component-content {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    max-height: 80%;
+    overflow: auto;
+}
+
+    .my-component-content .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        /*background-color: #007bff;*/
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+
+/*侧边栏*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 10px;
+    z-index: 1;
+}
+
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .sidebar ul li h3 {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li ul {
+            margin: 0;
+            padding: 0;
+        }
+
+            .sidebar ul li ul li {
+                margin: 5px 0;
+            }
+
+    .sidebar button {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+
+/*下拉框样式*/
+/* 下拉框容器 */
+.dropdown-container {
+    position: relative; /* 相对定位 */
+    display: inline-block; /* 显示为行内块元素 */
+    max-width: 200px; /* 最大宽度为 200 像素 */
+}
+
+/* 下拉框按钮 */
+.dropdown-button {
+    display: flex; /* 使用 flexbox 布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: space-between; /* 水平对齐 */
+    padding: 10px; /* 内边距 */
+    border: none; /* 移除按钮边框 */
+    background-color: #333; /* 按钮背景色为暗灰色 */
+    color: #fff; /* 文字颜色为白色 */
+    cursor: pointer; /* 鼠标指针变成手指 */
+
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+/* 下拉框菜单 */
+.dropdown-menu {
+    position: absolute; /* 绝对定位 */
+    top: 100%; /* 位于按钮下方 */
+    left: 0; /* 左对齐 */
+    z-index: 1; /* 确保菜单在顶部 */
+    min-width: 200px; /* 最小宽度 */
+    padding: 10px; /* 内边距 */
+    background-color: #fff; /* 背景色为白色 */
+    border: 1px solid #ccc; /* 边框 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+    max-height: 200px; /* 最大高度为 200 像素 */
+    overflow-y: auto; /* 垂直方向自动滚动 */
+    background-color: #333; /* 菜单背景色为暗灰色 */
+    color: #fff; /* 文字颜色为白色 */
+    border: 1px solid #fff; /* 边框为白色 */
+}
+
+/* 下拉框组 */
+.dropdown-group {
+    margin-bottom: 10px; /* 组之间的间距 */
+}
+
+/* 下拉框组标题 */
+.dropdown-group-header {
+    font-weight: bold; /* 加粗文本 */
+    margin-bottom: 5px; /* 标题和选项之间的间距 */
+}
+
+/* 下拉框选项 */
+.dropdown-option {
+    padding: 5px; /* 内边距 */
+    cursor: pointer; /* 鼠标指针变成手指 */
+    background-color: #444; /* 选项背景色为更暗的灰色 */
+    color: #fff; /* 文字颜色为白色 */
+}
+
+    /* 下拉框选项悬停效果 */
+    .dropdown-option:hover {
+        background-color: #555; /* 悬停时背景色变为更亮的灰色 */
+    }
+
+.editor-head {
+    background-color: #333;
+    color: #f2f2f2;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+    /*标题栏的样式*/
+    .editor-head button {
+        align-items: center; /* 垂直居中 */
+        justify-content: space-between; /* 水平对齐 */
+        padding: 10px; /* 内边距 */
+        border: none; /* 移除按钮边框 */
+        background-color: #333; /* 按钮背景色为暗灰色 */
+        color: #fff; /* 文字颜色为白色 */
+        cursor: pointer; /* 鼠标指针变成手指 */
+    }
+
+        .editor-head button:hover {
+            background-color: #444; /* 悬停时背景色变为更亮的灰色 */
+        }
+
+        .editor-head button:focus {
+            outline: none; /* 移除按钮获得焦点时的边框 */
+            /*box-shadow: 0 0 0 2px #fff, 0 0 0 4px #007bff;*/ /* 添加获得焦点时的阴影效果 */
+            /*background: linear-gradient(to bottom, #ccc, #aaa);*/ /* 渐变色更暗 */
+            /*background-color: #0062cc;*/ /* 获得焦点时按钮背景色变为深蓝色 */
+        }
+
+
+/*主页样式*/
+.container {
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-bar {
+    background-color: #333;
+    /*padding: 10px;*/
+    display: flex;
+    /*justify-content: flex-end;*/
+}
+
+    .title-bar button {
+        margin-left: 10px;
+    }
+
+.split-container {
+    height:100%;
+    width:100%;
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.left-pane,
+.right-pane {
+    /*flex: 1;*/
+    height: 100%;
+    min-width: 0;
+    overflow: auto;
+    resize: horizontal; /* 允许水平调整大小 */
+}
+
+.left-pane {
+    background-color: #222;
+    flex-grow: 6; /* 占 70% */
+    max-width:1200px;
+}
+
+.right-pane {
+    background-color: #444;
+    flex-grow: 4; /* 占 30% */
+}
+
+.bottom-nav {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+    .bottom-nav a {
+        margin: 0 10px;
+        color: white;
+        text-decoration: none;
+    }
+
+/*弹窗*/
+/* 弹窗背景色 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* 弹窗主体部分 */
+.modal-dialog {
+    position: relative;
+    margin: 100px auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+}
+
+/* 弹窗头部 */
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+/* 弹窗标题 */
+.modal-title {
+    margin-top: 0;
+}
+
+/* 关闭按钮 */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* 弹窗内容 */
+.modal-body {
+    padding: 15px;
+    text-align: center;
+}
+
+.chat-input textarea {
+    resize: none;
+    overflow: hidden;
+    height: 3em;
+}
+
+.chat-input {
+    box-sizing: border-box;
+    display: flex;
+}
+
+    .chat-input textarea {
+        flex: 1;
+        margin-right: 8px;
+        box-sizing: border-box;
+        resize: none;
+        overflow: hidden;
+        height: 3em;
+        position: inherit;
+    }
+
+    .chat-input .send-button {
+        box-sizing: border-box;
+    }
+
+
+/*输入框*/
+.console-in-container {
+    position: relative;
+    display: flex;
+    /*flex-direction: row;
+    align-items: center;
+    justify-content: center;*/
+    /*margin: 20px;*/
+}
+
+.textarea-container {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(0, 100%);
+    z-index :1;
+}
+
+    .textarea-container textarea {
+        width: 300px;
+        height: 100px;
+        resize: none;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+
+
+/*消息框*/
+.message-box {
+    /*display: none;*/
+    position: fixed;
+    top: 50%;
+    right: 20%;
+    transform: translate(0, -50%);
+    background-color: #000;
+    color: #fff; /* 添加字体颜色属性 */
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: auto; /* 将宽度设置为自适应 */
+    z-index: 9999;
+}
+
+.message-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message-box-title {
+    margin: 0;
+}
+
+.message-box-close {
+    background-color: transparent;
+    border: none;
+    color:white;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 0;
+}
+
+.message-box-content {
+    margin-top: 10px;
+}
+
+/*编辑器拖动*/
+.split-container {
+    display: flex;
+    height: 100%;
+}
+
+.resizable {
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.left-pane {
+    background-color: #f0f0f0;
+}
+
+.right-pane {
+    background-color: #e0e0e0;
+}
+
+.handle {
+    position: relative;
+    width: 10px;
+    cursor: col-resize;
+    z-index: 1;
+    background-color: #ccc;
+}

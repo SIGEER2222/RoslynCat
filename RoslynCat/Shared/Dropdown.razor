@@ -1,0 +1,64 @@
+﻿@using System.Linq
+@using RoslynCat.SQL;
+@using SqlSugar;
+
+<div class="dropdown-container">
+    <div class="dropdown-button" @onclick="ToggleDropdown">
+        C#示例代码学习
+    </div>
+    @if (IsDropdownVisible && SelectOptions is not null) {
+        <div class="dropdown-menu">
+            @foreach (var group in SelectOptions?.GroupBy(o => o.Group)) {
+                <div class="dropdown-group">
+                    <div class="dropdown-group-header">
+                        @group.Key
+                    </div>
+                    @foreach (var option in group) {
+                        <div class="dropdown-option" @onclick="() => OptionSelected(option)">
+                            @option.Title
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+
+    private bool IsDropdownVisible { get; set; }
+    [Parameter]
+    public EventCallback<CodeSampleGroupAndTitle> OptionSelectedCallback { get; set; }
+
+    [Parameter] public List<CodeSampleGroupAndTitle> SelectOptions {get;set;}
+    private List<Option> Options { get; set; } = new List<Option>
+                                        {
+            new Option { Group = "C#基础", Title = "关键字" },
+            new Option { Group = "C#基础", Title = "操作符" },
+            new Option { Group = "C#基础", Title = "控制语句" },
+            new Option { Group = "C#基础", Title = "数组" },
+            new Option { Group = "C#基础", Title = "类型系统" },
+            new Option { Group = "C#基础", Title = "方法" },
+            new Option { Group = "C# Advanced", Title = "Delegates and Events" },
+            new Option { Group = "C# Advanced", Title = "Generics" },
+            new Option { Group = "C# Advanced", Title = "LINQ" },
+            new Option { Group = "C# Advanced", Title = "Multithreading" },
+            new Option { Group = "C# Advanced", Title = "Asynchronous Programming" },
+            new Option { Group = "C# Advanced", Title = "Reflection" },
+        };
+
+    public class Option {
+        public string Group { get; set; }
+        public string Title { get; set; }
+        public string Code { get; set; }
+    }
+
+    private void ToggleDropdown() {
+        IsDropdownVisible = !IsDropdownVisible;
+    }
+
+    private async Task OptionSelected(CodeSampleGroupAndTitle option) {
+        await OptionSelectedCallback.InvokeAsync(option);
+        IsDropdownVisible = false;
+    }
+}

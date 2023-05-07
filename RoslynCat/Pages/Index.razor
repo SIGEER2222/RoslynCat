@@ -1,0 +1,55 @@
+﻿@page "/"
+@using Microsoft.Extensions.Options;
+@inject NavigationManager NavigationManager
+@inject IOptions<AppSettings> appSettings
+<PageTitle>RoslynCat</PageTitle>
+
+<div class="container">
+    <div class="title-bar">
+        <div class="editor-head">
+            <button @onclick="RunCode">运行</button>
+            <button @onclick="CodeSharing">分享代码</button>
+            <ConsoleIn @ref="consoleIn" />
+            <Chat />
+            <Dropdown OptionSelectedCallback="@HandleOptionSelected" SelectOptions="@Options" />
+            <a class="" href="https://github.com/SIGEER2222/RoslynCat">RolsynCat in Github</a>
+        </div>
+    </div>
+
+    @*编辑器主体*@
+    <div class="split-container">
+        <div class="left-pane resizable">
+            <div id="@editorId" class="monaco"></div>
+        </div>
+
+        <div class="handle"></div>
+
+        <div class="right-pane resizable">
+            <div id="@resultId" class="monaco">
+            </div>
+        </div>
+    </div>
+    <MessageBox Message="@shareMessage" Show="@show"></MessageBox>
+
+</div>
+
+@code {
+    private static readonly string editorId = Data.Constants.csharpId;
+    private static readonly string resultId = Data.Constants.resultId;
+    private string code { get; set; } = Data.Constants.defultCode;
+    private string InputValue { get; set; } = "在此输入框输入内容";
+    private ConsoleIn consoleIn;
+    private string Result = "等待编译……";
+    private bool show = false;
+
+    private void HandleValueChanged(string newValue) {
+        Console.WriteLine("newValue" + newValue);
+        InputValue = newValue;
+    }
+
+    private async Task HandleOptionSelected(CodeSampleGroupAndTitle option) {
+        Console.WriteLine($"选择了 {option.Id}");
+        await SetCode(option.Id);
+    }
+    private string GetConsoleValue() => consoleIn.InputValue;
+}
