@@ -365,3 +365,4 @@ FodyWeavers.xsd
 /RoslynCat/appsettings.Development.json
 /RoslynCat/TestIDDDD.sqlite
 /Test
+/.idea

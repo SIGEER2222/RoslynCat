@@ -1,13 +1,18 @@
-﻿@using System.Linq
+﻿@page "/drop"
+
+@using System.Linq
 @using RoslynCat.SQL;
 @using SqlSugar;
-
+@using Console = System.Console
+@inject CodeSampleRepository CodeSample ;
 <div class="dropdown-container">
     <div class="dropdown-button" @onclick="ToggleDropdown">
         C#示例代码学习
     </div>
-    @if (IsDropdownVisible && SelectOptions is not null) {
-        <div class="dropdown-menu">
+
+    @if (IsDropdownVisible && SelectOptions is not null) 
+    {
+        <div class="dropdown-menus">
             @foreach (var group in SelectOptions?.GroupBy(o => o.Group)) {
                 <div class="dropdown-group">
                     <div class="dropdown-group-header">
@@ -51,6 +56,13 @@
         public string Group { get; set; }
         public string Title { get; set; }
         public string Code { get; set; }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if (firstRender) {
+            SelectOptions = await CodeSample.GetGroupAndTitleList();
+            Console.WriteLine(SelectOptions.Count());
+        }
     }
 
     private void ToggleDropdown() {

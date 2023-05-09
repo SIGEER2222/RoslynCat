@@ -4,14 +4,14 @@
 @inject IOptions<AppSettings> appSettings
 <PageTitle>RoslynCat</PageTitle>
 
-<div class="container">
+<div class="homes">
     <div class="title-bar">
         <div class="editor-head">
             <button @onclick="RunCode">运行</button>
             <button @onclick="CodeSharing">分享代码</button>
             <ConsoleIn @ref="consoleIn" />
             <Chat />
-            <Dropdown OptionSelectedCallback="@HandleOptionSelected" SelectOptions="@Options" />
+            <RoslynCat.Shared.CodeList OptionSelectedCallback="@HandleOptionSelected" SelectOptions="@Options" />
             <a class="" href="https://github.com/SIGEER2222/RoslynCat">RolsynCat in Github</a>
         </div>
     </div>
@@ -34,21 +34,22 @@
 </div>
 
 @code {
+
     private static readonly string editorId = Data.Constants.csharpId;
     private static readonly string resultId = Data.Constants.resultId;
     private string code { get; set; } = Data.Constants.defultCode;
     private string InputValue { get; set; } = "在此输入框输入内容";
+    private List<SelectedItem> RadioItems { get; set; } = new List<SelectedItem>();
     private ConsoleIn consoleIn;
     private string Result = "等待编译……";
     private bool show = false;
 
     private void HandleValueChanged(string newValue) {
-        Console.WriteLine("newValue" + newValue);
         InputValue = newValue;
+
     }
 
     private async Task HandleOptionSelected(CodeSampleGroupAndTitle option) {
-        Console.WriteLine($"选择了 {option.Id}");
         await SetCode(option.Id);
     }
     private string GetConsoleValue() => consoleIn.InputValue;

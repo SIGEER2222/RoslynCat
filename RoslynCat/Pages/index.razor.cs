@@ -45,8 +45,8 @@ namespace RoslynCat.Pages
             await JsRuntimeExt.Shared.CreateMonacoEditorAsync(resultId,Result);
             RunCode();
             await JsRuntimeExt.Shared.InvokeVoidAsync("monacoInterop.registerMonacoProviders",DotNetObjectReference.Create(this));
-            Options = await CodeSample.GetGroupAndTitleList();
-            StateHasChanged();
+            //Options = await CodeSample.GetGroupAndTitleList();
+            //StateHasChanged();
         }
 
         [JSInvokable("FormatCode")]
@@ -86,7 +86,7 @@ namespace RoslynCat.Pages
         }
 
         protected async Task RunCode() {
-            Options = await CodeSample.GetGroupAndTitleList();
+            //Options = await CodeSample.GetGroupAndTitleList();
             string inputValue = GetConsoleValue()??string.Empty;
             code = await JsRuntimeExt.Shared.GetValue(editorId);
             Result = await CompletionProvider.RunCode(code,inputValue);

@@ -31,7 +31,7 @@ namespace RoslynCat.Rules
             // 将 CompletionProvider 和 CodeSampleRepository 类型的服务注册为作用域服务。
             services.AddScoped<CompletionProvider>();
             services.AddScoped<CodeSampleRepository>();
-
+            services.AddBootstrapBlazor();
             // 使用工厂方法将 ISqlSugarClient 类型的服务注册为单例服务。
             services.AddSingleton<ISqlSugarClient>(provider => new SqlSugarFactory().Create(provider));
 
@@ -41,7 +41,6 @@ namespace RoslynCat.Rules
                 client.BaseAddress = new Uri("https://api.github.com");
             });
 
-            services.AddScoped<IpWhiteListMiddleware>();
             // 返回更新后的 IServiceCollection。
             return services;
         }

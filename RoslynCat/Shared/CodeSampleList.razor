@@ -4,13 +4,11 @@
 @if (codeSamples != null) {
     <h3>代码示例列表</h3>
     @if (codeSample != null) {
-
         <div id="edit-form" style="@(edit ?"display: block;" :"display: none;")">
             <form>
                 <div class="form-group">
                     <label for="group">Group:</label>
                    <InputSelect @bind-Value="@codeSample.Group" class="form-control">
-                       <option value="">请选择</option>
                        <option value="C#基础语法">C#基础语法</option>
                        <option value="C#进阶技巧">C#进阶技巧</option>
                        <option value="C#算法实现">C#算法实现</option>
