@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoslynCat", "RoslynCat.cspr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoslynCatUI", "..\RoslynCatUI\RoslynCatUI.csproj", "{C5CF0E2A-0D22-4682-835D-763410F84707}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "..\Test\Test.csproj", "{8A259F58-D782-4858-BE69-AE4955065A45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C5CF0E2A-0D22-4682-835D-763410F84707}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5CF0E2A-0D22-4682-835D-763410F84707}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5CF0E2A-0D22-4682-835D-763410F84707}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A259F58-D782-4858-BE69-AE4955065A45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A259F58-D782-4858-BE69-AE4955065A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A259F58-D782-4858-BE69-AE4955065A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A259F58-D782-4858-BE69-AE4955065A45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

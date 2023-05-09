@@ -41,6 +41,7 @@ namespace RoslynCat.Rules
                 client.BaseAddress = new Uri("https://api.github.com");
             });
 
+            services.AddScoped<IpWhiteListMiddleware>();
             // 返回更新后的 IServiceCollection。
             return services;
         }
