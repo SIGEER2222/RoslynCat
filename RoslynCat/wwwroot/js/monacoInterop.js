@@ -167,8 +167,10 @@ monacoInterop.registerMonacoProviders = async (dotNetObject) => {
 
     async function addCommand() {
         // 添加 Ctrl/Cmd + S 快捷键命令，保存代码到本地存储
-        csharpEditor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {
+        csharpEditor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS,async () => {
             localStorage.setItem('oldCode', csharpEditor.getValue());
+            const result = await dotNetObject.invokeMethodAsync("AutoRunCode", csharpEditor.getValue());
+            monacoInterop.editors['resultId'].setValue(result);
         });
 
         // 添加 Ctrl/Cmd + K 快捷键命令，使用 .NET 方法格式化代码

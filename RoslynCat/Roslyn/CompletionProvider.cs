@@ -96,9 +96,13 @@ namespace RoslynCat.Roslyn
 				Console.SetIn(new StringReader(read));
 
 				var para = entryPoint.GetParameters();
-                _ = para.Length > 0 ? entryPoint?.Invoke(null,new object[] { args }) : entryPoint?.Invoke(null,null);
-
-				res = writer.ToString();
+				try {
+                    _ = para.Length > 0 ? entryPoint?.Invoke(null,new object[] { args }) : entryPoint?.Invoke(null,null);
+                    res = writer.ToString();
+                }
+                catch (Exception e) {
+                    res = e.Message;
+				}
 				writer.Close();
 				Console.SetOut(stdout);
 			}

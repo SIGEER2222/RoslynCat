@@ -5,6 +5,8 @@
     background-color: #fff;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     border-radius: 0.25rem;
+    table-layout: fixed;
+    width: 100%;
 }
 
     .table th,
@@ -12,6 +14,10 @@
         padding: 0.75rem;
         vertical-align: top;
         border-top: 1px solid #dee2e6;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100px; /* 这里的值是限制单元格宽度的最大值，请根据实际需要进行调整 */
     }
 
     .table thead th {

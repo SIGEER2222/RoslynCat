@@ -10,8 +10,7 @@
         C#示例代码学习
     </div>
 
-    @if (IsDropdownVisible && SelectOptions is not null) 
-    {
+    @if (IsDropdownVisible && SelectOptions is not null) {
         <div class="dropdown-menus">
             @foreach (var group in SelectOptions?.GroupBy(o => o.Group)) {
                 <div class="dropdown-group">
@@ -35,34 +34,17 @@
     [Parameter]
     public EventCallback<CodeSampleGroupAndTitle> OptionSelectedCallback { get; set; }
 
-    [Parameter] public List<CodeSampleGroupAndTitle> SelectOptions {get;set;}
-    private List<Option> Options { get; set; } = new List<Option>
-                                        {
-            new Option { Group = "C#基础", Title = "关键字" },
-            new Option { Group = "C#基础", Title = "操作符" },
-            new Option { Group = "C#基础", Title = "控制语句" },
-            new Option { Group = "C#基础", Title = "数组" },
-            new Option { Group = "C#基础", Title = "类型系统" },
-            new Option { Group = "C#基础", Title = "方法" },
-            new Option { Group = "C# Advanced", Title = "Delegates and Events" },
-            new Option { Group = "C# Advanced", Title = "Generics" },
-            new Option { Group = "C# Advanced", Title = "LINQ" },
-            new Option { Group = "C# Advanced", Title = "Multithreading" },
-            new Option { Group = "C# Advanced", Title = "Asynchronous Programming" },
-            new Option { Group = "C# Advanced", Title = "Reflection" },
-        };
+    [Parameter] public List<CodeSampleGroupAndTitle> SelectOptions { get; set; }
 
-    public class Option {
+    public class Option
+    {
         public string Group { get; set; }
         public string Title { get; set; }
         public string Code { get; set; }
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender) {
-        if (firstRender) {
-            SelectOptions = await CodeSample.GetGroupAndTitleList();
-            Console.WriteLine(SelectOptions.Count());
-        }
+        SelectOptions = await CodeSample.GetGroupAndTitleList();
     }
 
     private void ToggleDropdown() {

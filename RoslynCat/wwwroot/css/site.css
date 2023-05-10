@@ -3,6 +3,9 @@
     width: 100%;
     max-width:1200px;
 }
+body {
+    overflow-x: hidden;
+}
 button {
     font-family: "Microsoft YaHei", Arial, sans-serif;
     font-size: 16px;

@@ -22,15 +22,15 @@ namespace RoslynCat.Rules
             services.AddSingleton<ChatGPT>();
 
             // 将 IWorkSpaceService、ICompleteProvider、IHoverProvider、ICodeCheckProvider 和 IGistService 类型的服务注册为作用域服务。
-            services.AddScoped<IWorkSpaceService,WorkSpaceService>();
-            services.AddScoped<ICompleteProvider,CompleteProvider>();
-            services.AddScoped<IHoverProvider,HoverProvider>();
-            services.AddScoped<ICodeCheckProvider,CodeCheckProvider>();
-            services.AddScoped<IGistService,CodeSharing>();
+            services.AddTransient<IWorkSpaceService,WorkSpaceService>();
+            services.AddTransient<ICompleteProvider,CompleteProvider>();
+            services.AddTransient<IHoverProvider,HoverProvider>();
+            services.AddTransient<ICodeCheckProvider,CodeCheckProvider>();
+            services.AddTransient<IGistService,CodeSharing>();
 
             // 将 CompletionProvider 和 CodeSampleRepository 类型的服务注册为作用域服务。
-            services.AddScoped<CompletionProvider>();
-            services.AddScoped<CodeSampleRepository>();
+            services.AddTransient<CompletionProvider>();
+            services.AddTransient<CodeSampleRepository>();
             services.AddBootstrapBlazor();
             // 使用工厂方法将 ISqlSugarClient 类型的服务注册为单例服务。
             services.AddSingleton<ISqlSugarClient>(provider => new SqlSugarFactory().Create(provider));
