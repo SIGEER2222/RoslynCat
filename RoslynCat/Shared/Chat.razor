@@ -62,21 +62,26 @@
     private async Task WaitMessage(string ask) {
         isSending = true;
         placeholder = "思考中，请等待……";
-        string result = await ChatGpt.Reply(ask,lastMessage);
-        result = UpdateHtmlText(result);
-        Messages.Add(new Message { Text = ask,IsSystemMessage = false });
-        Messages.Add(new Message { Text = result,IsSystemMessage = true });
-        lastMessage.ask = CurrentMessage;
-        lastMessage.message = result;
-        isSending = false;
-        placeholder = "请输入问题";
+        try {
+            string result = await ChatGpt.Reply(ask,lastMessage);
+            result = UpdateHtmlText(result);
+            Messages.Add(new Message { Text = ask,IsSystemMessage = false });
+            Messages.Add(new Message { Text = result,IsSystemMessage = true });
+            lastMessage.ask = CurrentMessage;
+            lastMessage.message = result;
+            isSending = false;
+            placeholder = "请输入问题";
+        }
+        catch (Exception) {
+            placeholder = "OpenAIKEY过期，请联系站长更新";
+        }
+        
     }
 
     private string UpdateHtmlText(string text) {
         var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
         return Markdown.ToHtml(text,pipeline);
     }
-
 
     private void ShowMyComponent() {
         IsMyComponentVisible = true;

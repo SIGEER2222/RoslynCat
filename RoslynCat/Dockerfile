@@ -2,16 +2,14 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
-EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["RoslynCat/RoslynCat.csproj", "RoslynCat/"]
-COPY ["RoslynCatUI/RoslynCatUI.csproj", "RoslynCatUI/"]
-RUN dotnet restore "RoslynCat/RoslynCat.csproj"
+COPY ["RoslynCat.csproj", "."]
+RUN dotnet restore "./RoslynCat.csproj"
 COPY . .
-WORKDIR "/src/RoslynCat"
+WORKDIR "/src/."
 RUN dotnet build "RoslynCat.csproj" -c Release -o /app/build
 
 FROM build AS publish
