@@ -56,7 +56,6 @@ namespace RoslynCat.Roslyn
 				LiteralExpressionSyntax literal => HoverInfoBuilder.Literal(literal),
 				_ => HoverInfoBuilder.Build(semanticModel.GetSymbolInfo(expressionNode))
 			};
-			await Console.Out.WriteLineAsync(result);
 			Location location = expressionNode.GetLocation();
 			if (string.IsNullOrWhiteSpace(result)) {
 				return default;

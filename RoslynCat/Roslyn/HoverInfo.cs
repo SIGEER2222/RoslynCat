@@ -61,7 +61,6 @@ namespace RoslynCat.Roslyn
 				string isStatic = symbol.IsStatic ? "static " : "";
 				string isReadOnly = symbol.IsReadOnly ? "readonly " : "";
 				string isConst = symbol.IsConst ? "const " : "";
-
 				return $"{symbol.Name} : {accessibility} {isStatic}{isReadOnly}{isConst}{symbol.Type}";
 			}
 

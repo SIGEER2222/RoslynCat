@@ -19,7 +19,8 @@ namespace RoslynCat.Rules
 
         public async Task InvokeAsync(HttpContext context)
         {
-            if (context.Request.Path.StartsWithSegments("/test")) {
+            bool isManagement = context.Request.Path.StartsWithSegments("/add") || context.Request.Path.StartsWithSegments("/list");
+            if (isManagement) {
                 var remoteIpAddress = context.Connection.RemoteIpAddress;
 
                 if (!IsIpAddressAllowed(remoteIpAddress))
@@ -27,7 +28,7 @@ namespace RoslynCat.Rules
                     _logger.LogWarning("Access denied to {IpAddress}", remoteIpAddress);
 
                     context.Response.StatusCode = 403;
-                    await context.Response.WriteAsync("这不是你该来的地方");
+                    await context.Response.WriteAsync("That not your world");
                     return;
                 }
             }

@@ -14,9 +14,7 @@
 
             // 在这里记录IP地址和请求路径
             Console.WriteLine($"IP Address: {ipAddress}, Request Path: {requestPath}");
-
             await _next(context);
-
         }
     }
 }

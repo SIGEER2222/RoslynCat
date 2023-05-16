@@ -62,7 +62,6 @@ namespace RoslynCat.Roslyn
 			return formattedNode.ToFullString();
 		}
 
-
 		/// <summary>
 		/// 运行代码的方法，接受两个字符串参数，一个是代码，另一个是读取（可选，默认为空字符串）。
 		/// </summary>
@@ -116,8 +115,8 @@ namespace RoslynCat.Roslyn
 		/// <param name="syntaxTree"></param>
 		/// <returns></returns>
 		private CSharpCompilation CreateCompilation(SyntaxTree syntaxTree) => CSharpCompilation.Create(
-			Path.GetRandomFileName(),
-			syntaxTrees: new[] { syntaxTree },
+           Path.GetRandomFileName(),
+            syntaxTrees: new[] { syntaxTree },
 			references: Constants.DefaultMetadataReferences,
 			options: new CSharpCompilationOptions(OutputKind.ConsoleApplication));
 	}
