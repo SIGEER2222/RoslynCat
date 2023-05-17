@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoslynCat", "RoslynCat.cspr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoslynTest", "..\RoslynTest\RoslynTest.csproj", "{41FBE9EB-4484-466A-84AC-6043D82668DA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "..\..\Code\ConsoleApp1\ConsoleApp1.csproj", "{0F2A965B-F8D0-44C5-9DB5-F1676218A14B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{41FBE9EB-4484-466A-84AC-6043D82668DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41FBE9EB-4484-466A-84AC-6043D82668DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41FBE9EB-4484-466A-84AC-6043D82668DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F2A965B-F8D0-44C5-9DB5-F1676218A14B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F2A965B-F8D0-44C5-9DB5-F1676218A14B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F2A965B-F8D0-44C5-9DB5-F1676218A14B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F2A965B-F8D0-44C5-9DB5-F1676218A14B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

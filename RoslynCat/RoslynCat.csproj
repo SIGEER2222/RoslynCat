@@ -10,21 +10,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Betalgo.OpenAI" Version="6.8.5" />
-    <PackageReference Include="BootstrapBlazor" Version="7.6.2" />
+    <PackageReference Include="Betalgo.OpenAI" Version="6.8.6" />
+    <PackageReference Include="BootstrapBlazor" Version="7.6.5" />
     <PackageReference Include="Markdig" Version="0.31.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis" Version="4.6.0-1.final" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.6.0-1.final" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Features" Version="4.6.0-1.final" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Features" Version="4.6.0-1.final" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0-preview.3.23174.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0-preview.3.23174.2">
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="4.6.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.6.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Features" Version="4.6.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Features" Version="4.6.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0-preview.4.23259.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0-preview.4.23259.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="8.0.0-preview.3.23174.8" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="8.0.0-preview.4.23259.5" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
-    <PackageReference Include="SqlSugarCore" Version="5.1.4.72-preview06" />
+    <PackageReference Include="SqlSugarCore" Version="5.1.4.74-preview05" />
   </ItemGroup>
 
 </Project>
