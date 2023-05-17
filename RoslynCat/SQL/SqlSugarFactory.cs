@@ -7,9 +7,9 @@ namespace RoslynCat.SQL
     {
         public ISqlSugarClient Create(IServiceProvider provider) {
             var appSettings = provider.GetRequiredService<IOptions<AppSettings>>().Value;
-            string connectionString = "Data Source = TestIDDDD.sqlite";
+            //string connectionString = "Data Source = TestIDDDD.sqlite";
 
-            //string connectionString = appSettings.ConnectionStrings.SqliteDb;
+            string connectionString = appSettings.ConnectionStrings.SqliteDb;
             var db = new SqlSugarScope(new ConnectionConfig()
             {
                 DbType = DbType.Sqlite,

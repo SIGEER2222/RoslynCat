@@ -1,6 +1,36 @@
 ﻿
 let assemblies = null;
 
+export function quickFix(languageId) {
+    //monaco.editor.registerCodeActionProvider(languageId,{
+    //    provideCodeActions: async (model, range, context, token) => {
+    //        // 获取当前代码的语法树
+    //        const syntaxTree = await document.getSyntaxTreeAsync();
+    //        // 获取语法树中与当前选中范围重叠的节点
+    //        const nodes = syntaxTree.getNodes(range);
+    //        // 创建修复建议列表
+    //        const codeActions = [];
+    //        // 遍历重叠的节点，查找需要修复的问题
+    //        for (const node of nodes) {
+    //            if (node.kind === roslyn.SyntaxKind.LocalDeclarationStatement) {
+    //                // 如果是本地变量声明语句，则尝试修复它
+    //                const declaration = node as roslyn.LocalDeclarationStatementSyntax;
+    //                const identifier = declaration.getIdentifier();
+    //                const newName = "myVariable";
+    //                const action = new roslyn.CodeAction("Rename variable", () => {
+    //                    // 创建重命名操作
+    //                    const solution = workspace.applyRename(identifier, newName);
+    //                    const newDocument = solution.getChangedDocument(document);
+    //                    editor.setValue(newDocument.getText());
+    //                });
+    //                codeActions.push(action);
+    //            }
+    //        }
+    //        return codeActions;
+    //    }
+    //})
+}
+
 export let dotNetObject = {};
 /**
  * 监听拖动句柄的鼠标移动事件，根据鼠标移动的距离来调整左右两个面板的宽度

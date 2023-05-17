@@ -22,4 +22,9 @@
 	{
 		Task<CodeCheckResult> Provide(EmitResult emitResult,Document document);
 	}
+
+	public interface ICodeFixProvider : IProvider<CodeFixResult>
+	{
+		Task<CodeFixResult> Provide();
+	}
 }

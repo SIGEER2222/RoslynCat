@@ -9,7 +9,7 @@ using System.Text.Json;
 
 namespace RoslynCat.Pages
 {
-    public partial class Index
+    public partial class Index : ComponentBase
     {
         public List<Diagnostic> Diagnostics { get; set; }
         [Inject] IGistService GistService { get; set; }
@@ -45,8 +45,6 @@ namespace RoslynCat.Pages
             await JsRuntimeExt.Shared.CreateMonacoEditorAsync(resultId,Result);
             RunCode();
             await JsRuntimeExt.Shared.InvokeVoidAsync("monacoInterop.registerMonacoProviders",DotNetObjectReference.Create(this));
-            //Options = await CodeSample.GetGroupAndTitleList();
-            //StateHasChanged();
         }
 
         [JSInvokable("FormatCode")]
@@ -124,16 +122,6 @@ namespace RoslynCat.Pages
             //_ = JS.SetMonacoDiagnosticsAsync(_editorId, diagnostics);
         }
 
-        //protected async Task AskGPT() {
-        //    string ask =  await JsRuntimeExt.Shared.GetValue(editorId);
-        //    Result = "˼���С�����ȴ�";
-        //    askGpt = "����˼���������ظ����";
-        //    StateHasChanged();
-        //    await JsRuntimeExt.Shared.SetValue(resultId,Result);
-        //    Result = await new ChatGPT().Reply(ask);
-        //    await JsRuntimeExt.Shared.SetValue(resultId,Result);
-        //    askGpt = "����ChatGPT?";
-        //}
     }
 
 }

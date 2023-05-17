@@ -49,6 +49,8 @@ monacoInterop.createEditor = (elementId, code) => {
     monacoInterop.editors[elementId] = editor;
 }
 
+monacoInterop.quickFix = module.quickFix;
+
 //注册C#语言的语法提示、快捷键等
 monacoInterop.registerMonacoProviders = async (dotNetObject) => {
 
@@ -226,7 +228,6 @@ monacoInterop.registerMonacoProviders = async (dotNetObject) => {
             contextMenuGroupId: "code",
             run: async function (editor) {
                 autoRun = !autoRun;
-                console.log(autoRun);
             }
         });
     }

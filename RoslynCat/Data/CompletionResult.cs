@@ -59,6 +59,11 @@ namespace RoslynCat.Data
 		public virtual int ActiveSignature { get; set; }
 	}
 
+	public class CodeFixResult : IResponse
+	{
+
+	}
+
 	public class Signatures
 	{
 		public virtual string Label { get; set; }
@@ -83,4 +88,5 @@ namespace RoslynCat.Data
 		Warning = 4,
 		Error = 8
 	}
+
 }
