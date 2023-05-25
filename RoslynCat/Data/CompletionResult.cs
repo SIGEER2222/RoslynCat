@@ -61,7 +61,8 @@ namespace RoslynCat.Data
 
 	public class CodeFixResult : IResponse
 	{
-
+		public string Usings { get; set; }
+		public string FixCode { get; set; }
 	}
 
 	public class Signatures

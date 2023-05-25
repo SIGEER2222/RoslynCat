@@ -25,6 +25,6 @@
 
 	public interface ICodeFixProvider : IProvider<CodeFixResult>
 	{
-		Task<CodeFixResult> Provide();
+		Task<CodeFixResult> Provide(Document document);
 	}
 }

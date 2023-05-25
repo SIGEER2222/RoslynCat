@@ -38,7 +38,7 @@ namespace RoslynCat.Helpers
 					ChatMessage.FromUser(userText),
 				},
 				Model = Models.ChatGpt3_5Turbo,
-				MaxTokens = 1500//optional
+				MaxTokens = 500//optional
             };
 			var completionResult = await openAiService.ChatCompletion.CreateCompletion(messages);
 			if (completionResult.Successful) {
