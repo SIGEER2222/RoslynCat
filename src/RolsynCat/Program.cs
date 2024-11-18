@@ -33,14 +33,12 @@ builder.Services.AddTransient<CodeSampleRepository>();
 
 builder.Services.AddHttpContextAccessor();
 
-// 注册ISqlSugarClient接口和SqlSugarConfiguration类
 builder.Services.AddScoped<ISqlSugarClient>(provider => SqlSugarConfiguration.Configure());
 
 var app = builder.Build();
 app.UsePathBase("/");
 
 if (!app.Environment.IsDevelopment()) {
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

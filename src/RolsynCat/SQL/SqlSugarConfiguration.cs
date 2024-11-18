@@ -6,12 +6,11 @@ namespace RoslynCat.SQL
         public static ISqlSugarClient Configure() {
             var db = new SqlSugarClient(new ConnectionConfig()
             {
-                ConnectionString = new GetConfig().ConnectionString,
-                DbType = DbType.SqlServer,
+                ConnectionString = "Data Source=RoslynCat.db",
+                DbType = DbType.Sqlite,
                 IsAutoCloseConnection = true
             });
 
-            // 配置SqlSugar的日志记录器
             db.Aop.OnLogExecuting = (sql,pars) =>
             {
                 Console.WriteLine(sql + "\r\n" + db.Utilities.SerializeObject(pars.ToDictionary(p => p.ParameterName,p => p.Value)));

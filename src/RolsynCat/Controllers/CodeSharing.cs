@@ -18,6 +18,9 @@ namespace RoslynCat.Controllers
 			_githubClient = httpClientFactory.CreateClient("GithubApi");
 			GetConfig config = new GetConfig();
 			string token = config.GistId;
+			if(token is null) {
+				Console.WriteLine("GistId is null");
+			}
 			_githubClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("GistExample","1.0"));
 			_githubClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token",token);
 		}
@@ -28,6 +31,10 @@ namespace RoslynCat.Controllers
 		/// <returns></returns>
 		public async Task CreateGistAsync(string code) {
 			if (code is null) return;
+			if(_githubClient.DefaultRequestHeaders.Authorization.Parameter is null) {
+				Console.WriteLine("Token is null");
+				return;
+			}
 			var createGistContent = new JObject
 			{
 				{"description", Description},

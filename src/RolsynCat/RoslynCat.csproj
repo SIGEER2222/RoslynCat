@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
@@ -34,18 +34,6 @@
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.5.0" />
 
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="新文件夹\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EditorConfigFiles Remove="G:\Code\NewCode\RoslynCat\src\RolsynCat\.editorconfig" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Include="G:\Code\NewCode\RoslynCat\src\RolsynCat\.editorconfig" />
 	</ItemGroup>
 
 </Project>
